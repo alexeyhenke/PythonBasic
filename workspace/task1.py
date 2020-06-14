@@ -8,7 +8,6 @@ print("= " *50)
 print("{greeting:^100}".format(greeting="Добро пожаловать на страницу опросника!"))
 print("= " *50)
 
-
 # answer_str = f'Добрый день {user_fname} {user_sname} Вам {user_age} лет Вы родились в {2020 - user_age} году.'
 print("= " *50)
 # print(answer_str)
