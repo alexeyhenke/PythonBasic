@@ -4,11 +4,50 @@
    Элементы списка можно не запрашивать у пользователя, а указать явно, в программе
 """
 
-print("= " *50)
-print("{greeting:^100}".format(greeting="Добро пожаловать на страницу опросника!"))
-print("= " *50)
+print("= " * 50)
+print("{greeting:^100}".format(greeting="Скрипт проверки типа данных каждого элемента списка!"))
+print("= " * 50)
+# -= variables block =-
+# String
+a_str = "Hello world!"
+# Integer
+b_int = 123
+# Floating
+c_float = 3.14
+# Boolean
+d_bool = True
+# NoneType
+x_none = None
 
-# answer_str = f'Добрый день {user_fname} {user_sname} Вам {user_age} лет Вы родились в {2020 - user_age} году.'
-print("= " *50)
-# print(answer_str)
-print("= " *50)
+my_list = [a_str, b_int, c_float, d_bool, x_none]
+print("Элементы списка: \n")
+print(my_list)
+
+
+class NoneType(object):
+    pass
+
+
+for element in my_list:
+    if type(element) == bool:
+        print("= " * 50)
+        print(f'Determine type of element {element}: {type(element)}')
+        print(f'Type of element "{element}" is Boolean')
+    elif type(element) == int:
+        print("= " * 50)
+        print(f'Determine type of element {element}: {type(element)}')
+        print(f'Type of element "{element}" is Integer')
+    elif type(element) == str:
+        print("= " * 50)
+        print(f'Determine type of element {element}: {type(element)}')
+        print(f'Type of element "{element}" is String')
+    elif type(element) == float:
+        print("= " * 50)
+        print(f'Determine type of element {element}: {type(element)}')
+        print(f'Type of element "{element}" is Floating')
+    else:
+        print("= " * 50)
+        print(f'Determine type of element {element} by type() method: {type(element)}')
+        print(f'Type of element "{element}" is NoneType')
+
+print("= " * 50)
