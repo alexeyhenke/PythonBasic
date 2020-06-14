@@ -23,11 +23,6 @@ my_list = [a_str, b_int, c_float, d_bool, x_none]
 print("Элементы списка: \n")
 print(my_list)
 
-
-class NoneType(object):
-    pass
-
-
 for element in my_list:
     if type(element) == bool:
         print("= " * 50)
