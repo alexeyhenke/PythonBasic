@@ -40,9 +40,12 @@ for element in my_list:
         print("= " * 50)
         print(f'Determine type of element {element}: {type(element)}')
         print(f'Type of element "{element}" is Floating')
-    else:
+    elif x_none is None:
         print("= " * 50)
         print(f'Determine type of element {element} by type() method: {type(element)}')
         print(f'Type of element "{element}" is NoneType')
+    else:
+        print("= " * 50)
+        print(f'Determine type of element {element} by type() method: {type(element)}')
 
 print("= " * 50)
