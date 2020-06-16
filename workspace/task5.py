@@ -19,7 +19,6 @@ print("= " * 50)
 rating_list = [7, 5, 3, 3, 2]
 last_pos = 0
 customs_rating = 0
-insetr = False
 index_list = 0
 
 print(f'Начальный список рейтинга: {rating_list}\n')
@@ -49,6 +48,7 @@ while True:
     else:
         print(f'Ошибка ввода: введенное значение не является цифрой')
 
+    index_list = 0
     print(f'Обновленный список рейтинга: {rating_list}')
     print("= " * 50)
 
