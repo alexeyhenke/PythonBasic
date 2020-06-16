@@ -16,10 +16,14 @@ b_int = 123
 c_float = 3.14
 # Boolean
 d_bool = True
+# Tuple
+e_tuple = ()
+# List
+f_list = []
 # NoneType
 x_none = None
 
-my_list = [a_str, b_int, c_float, d_bool, x_none]
+my_list = [a_str, b_int, c_float, d_bool, e_tuple, f_list, x_none]
 print("Элементы списка: \n")
 print(my_list)
 
@@ -40,6 +44,14 @@ for element in my_list:
         print("= " * 50)
         print(f'Determine type of element {element}: {type(element)}')
         print(f'Type of element "{element}" is Floating')
+    elif type(element) == tuple:
+        print("= " * 50)
+        print(f'Determine type of element {element}: {type(element)}')
+        print(f'Type of element "{element}" is Tuple')
+    elif type(element) == list:
+        print("= " * 50)
+        print(f'Determine type of element {element}: {type(element)}')
+        print(f'Type of element "{element}" is List')
     elif x_none is None:
         print("= " * 50)
         print(f'Determine type of element {element} by type() method: {type(element)}')
