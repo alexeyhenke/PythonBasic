@@ -10,6 +10,14 @@ number_a = 0
 number_b = 0
 
 
+def isfloat(value):
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
+
+
 def division(a, b):
     try:
         return a / b
@@ -19,7 +27,7 @@ def division(a, b):
 
 while True:
     input_number = input("Ведите значение А: ")
-    if input_number.isdigit():
+    if isfloat(input_number):
         number_a = float(input_number)
         break
     else:
@@ -27,7 +35,7 @@ while True:
 
 while True:
     input_number = input("Ведите значение B: ")
-    if input_number.isdigit():
+    if isfloat(input_number):
         number_b = float(input_number)
         break
     else:
