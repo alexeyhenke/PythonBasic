@@ -5,19 +5,77 @@
    Для выполнения расчета для конкретных значений необходимо запускать скрипт с параметрами.
 """
 
-print("= " *50)
+print("= " * 50)
 print("{greeting:^100}".format(greeting="Добро пожаловать на страницу расчета заработной платы!"))
-print("= " *50)
+print("= " * 50)
 
-while True:
-    user_fname = input("Представьтесь пожалуйста.\nНазовите свое имя: ")
-    if user_fname != "":
-        break
-    else:
-        print("Извините, Вы ничего не ввели в поле Имя. Попробуйте еще раз\n")
+query_template = {'часы': ('количество отработанных часов', float)
+    , 'ставка': ('ставку в час', float)
+    , 'премия': ('премию', float)}
 
 
-answer_str = f'Добрый день Вам лет Вы родились в {2020} году.'
-print("= " *50)
-print(answer_str)
-print("= " *50)
+def calc_payment(data: dict) -> float:
+    """
+    Функция расчета заработной платы сотрудника
+    :param float_hours:
+    :param float_price:
+    :param float_bonus:
+    :return float:
+    """
+    float_hours = 1.0
+    float_price = 5.25
+    float_bonus = 0.0
+
+    for key, value in data.items():
+        if key == 'часы':
+            float_hours = value
+        elif key == 'ставка':
+            float_price = value
+        elif key == 'премия':
+            float_bonus = value
+        else:
+            print(f'ERROR: не ожидаемый параметр {value}')
+
+    return round((float_hours * float_price) + float_bonus, 2)
+
+
+def isfloat(value):
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
+
+
+user_hours = 0.0
+user_price = 0.0
+user_bonus = 0.0
+user_payme = {}
+go_next = True
+
+while go_next:
+    for key, value in query_template.items():
+        while True:
+            user_input = input(f'Введите {value[0]} сотрудника: ')
+            if isfloat(user_input):
+                try:
+                    user_input = value[1](user_input)
+                except ValueError as e:
+                    print("Ошибка ввода: вы ввели не верное значение")
+                    continue
+                user_payme[key] = user_input
+                break
+            else:
+                print("Ошибка ввода: Попробуйте еще раз\n")
+
+    print("- " * 50)
+    user_salary = str(calc_payment(user_payme)).rjust(2,'0')
+    print(f"Зарплата текущего сотрудника ${user_salary}")
+
+    while True:
+        calc_next = input("Расчитать следующего сотрудника (да / нет): ")
+        if calc_next.lower() in ('да', 'нет'):
+            go_next = calc_next.lower() == 'да'
+            break
+        else:
+            print("Ошибка ввода: ответьте 'да' или 'нет'.")
