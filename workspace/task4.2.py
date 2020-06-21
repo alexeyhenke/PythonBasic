@@ -7,22 +7,29 @@
 
    Результат: [12, 44, 4, 10, 78, 123]
 """
-print("= " *50)
-print("{greeting:^100}".format(greeting="Добро пожаловать на страницу перевода время в часы, минуты и секунды!"))
-print("= " *50)
+import random
 
-while True:
-    input_seconds = input("Введите время в секундах: ")
+print("= " *50)
+print("{greeting:^100}".format(greeting="Добро пожаловать на страницу программы выбора!"))
+print("= " *50)
+print("\nИсходный список:")
+print("- " *50)
+data_list = [(lambda i: i * i)(i) for i in random.choices(range(0, 8), k=10)]
+print(f'{data_list}\n')
 
-    if input_seconds.isdigit():
-        input_seconds = int(input_seconds)
-        break
+int_counter = 0
+new_data_list = []
+for i in data_list:
+    if len(data_list) >= (int_counter + 1):
+        if data_list[int_counter] < data_list[int_counter + 1]:
+            new_data_list.append(data_list[int_counter + 1])
     else:
-        print("Ошибка ввода. Введите время в секундах еще раз.")
+        break
+    int_counter += 2
 
-calc_hours = input_seconds // 3600
-calc_minutes = (input_seconds % 3600) // 60
-calc_seconds = (input_seconds % 3600) % 60
-
-calc_result = f"Получили время (в формате чч:мм:сс): {str(calc_hours).rjust(2,'0')}:{str(calc_minutes).rjust(2,'0')}:{str(calc_seconds).rjust(2,'0')}"
-print(calc_result)
+print("Результат выбора:")
+print("- " *50)
+if len(new_data_list) == 0:
+    print("Выбранный список пуст, т.к. нет значений соответствующих условию (значения которых больше предыдущего элемента)")
+else:
+    print(new_data_list)
