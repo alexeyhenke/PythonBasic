@@ -5,3 +5,22 @@
 
    Подсказка: использовать функцию reduce().
 """
+import functools
+
+print("= " * 50)
+print("{greeting:^100}".format(
+    greeting="Необходимо реализовать формирование списка и получить произведения всех элементов"))
+print("= " * 50)
+
+range_list = [i for i in range(100, 1001) if i % 2 == 0]
+print(f'Сформированный сиписок имеет {len(range_list)} количество элементов:')
+print(range_list)
+
+# вычисление произведения всех элементов списка
+# Подсказка: использовать функцию reduce()
+list_counter = 0
+multiplication_res = functools.reduce(lambda x, y: x * y, range_list)
+
+print("- " * 50)
+print(f'Результат произведения: {multiplication_res}')
+print(f'Длина числа составляет: {len(str(multiplication_res))} символов')
