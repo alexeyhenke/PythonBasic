@@ -5,3 +5,27 @@
 
    Подсказка: факториал числа n — произведение чисел от 1 до n. Например, факториал четырёх 4! = 1 * 2 * 3 * 4 = 24
 """
+print("= " *50)
+print("{greeting:^100}".format(greeting="Добро пожаловать! Получение факториала числа"))
+print("= " *50)
+
+def fact(n):
+    for el in range(1, (n + 1), 1):
+        yield el
+
+
+# def fac(n):
+#     if n == 0:
+#         return 1
+#     return fac(n - 1) * n
+
+
+input_int = input("Введите значение для расчета факториала: ")
+n = int(input_int)
+factorial = 1
+
+for el in fact(n):
+    factorial *= el
+print("- " *50)
+print(f'Значение факториала {n}! = {factorial}')
+#print(fac(n))
