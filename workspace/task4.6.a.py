@@ -15,6 +15,13 @@
 
 ## а) итератор, генерирующий целые числа, начиная с указанного
 ## iterator_a.py
+from workspace import iterator_a
+from workspace import iterator_b
 
+iter_list = iterator_a.run()
+print(iter_list)
+print("- " * 50)
 ## б) итератор, повторяющий элементы некоторого списка, определенного заранее
 ## iterator_b.py
+cycle_list = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+iterator_b.run_cycle(cycle_list)
