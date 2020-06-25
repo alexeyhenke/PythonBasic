@@ -27,7 +27,7 @@ try:
         for line in file:
             line_counter += 1
             print(line, end="")
-            print(f'Строка №{line_counter} имеет {len(line.split(" "))} слов')
+            # print(f'Строка №{line_counter} имеет {len(line.split(" "))} слов')
             word_counter += len(line.split(" "))
 
         print("- " * 50)
