@@ -14,3 +14,13 @@
 
     {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
 """
+
+from os import path
+
+print(" =" * 50)
+print("{greeting:^100}".format(
+    greeting="Добро пожаловать! Программа подсчитывает сумму чисел в файле и выводить ее на экран"))
+print(" =" * 50)
+
+file_name = 'file_task5.6.txt'
+file_path = path.join(path.dirname(__file__), 'files', file_name)
