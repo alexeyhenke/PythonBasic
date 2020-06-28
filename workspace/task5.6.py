@@ -19,8 +19,31 @@ from os import path
 
 print(" =" * 50)
 print("{greeting:^100}".format(
-    greeting="Добро пожаловать! Программа подсчитывает сумму чисел в файле и выводить ее на экран"))
+    greeting="Программа формирует словарь, содержащий название предмета и общее количество занятий по нему"))
 print(" =" * 50)
 
 file_name = 'file_task5.6.txt'
 file_path = path.join(path.dirname(__file__), 'files', file_name)
+
+schedule_dict = {}
+key = ""
+value_dict = 0
+
+with open(file_path, 'rt', encoding='UTF-8') as file_rt:
+    for el in file_rt.read().split(' '):
+        if el[-1] == ':':
+            key = el.strip(' \t\n\r-:')
+            value_dict = 0
+        else:
+            num = el.split('(')
+            for x in num:
+                if x.isdigit():
+                    value_dict += int(x.strip())
+
+        schedule_dict[key] = value_dict
+
+print(f'Расписание:')
+for key, value in schedule_dict.items():
+    print(f'{key} - {value} занятий')
+
+print("- " * 50)
