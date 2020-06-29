@@ -1,0 +1,5 @@
+Ivanov 100000
+Petrov 250000
+Pupkina 10000
+Kozlov 19500
+Kasimov 22000
