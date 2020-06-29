@@ -24,6 +24,11 @@ class TrafficLight:
         __color = "Red"
         print(f'Светофор включен. Горит {__color} свет')
 
+    def _print_red(self):
+        print("- " * 10)
+        print("\033[31m {}".format('Red'))
+        time.sleep(7)
+
     def _print_yellow(self):
         print("- " * 10)
         print("\033[33m {}".format('Yellow'))
