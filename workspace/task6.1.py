@@ -9,7 +9,44 @@
     Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении выводить соответствующее сообщение
     и завершать скрипт.
 """
-print("= " *50)
-print("{greeting:^100}".format(greeting="Добро пожаловать на страницу программы TrafficLight (светофор)!"))
-print("= " *50)
+import time
 
+print("= " * 50)
+print("{greeting:^100}".format(greeting="Добро пожаловать на страницу программы TrafficLight (светофор)!"))
+print("= " * 50)
+
+
+class TrafficLight:
+    __color = ""
+
+    def __init__(self):
+        __color = "Red"
+        print(f'Светофор включен. Горит {__color} свет')
+
+    def _print_red(self):
+        print("- " * 10)
+        print("\033[31m {}".format('Red'))
+        time.sleep(7)
+
+    def _print_yellow(self):
+        print("- " * 10)
+        print("\033[33m {}".format('Yellow'))
+        time.sleep(2)
+
+    def _print_green(self):
+        print("- " * 10)
+        print("\033[32m {}".format('Green'))
+        time.sleep(5)
+
+    def running(self):
+        count_down = 3
+        while count_down > 0:
+            self._print_red()
+            self._print_yellow()
+            self._print_green()
+            count_down -= 1
+
+
+trafficlight = TrafficLight()
+time.sleep(1)
+trafficlight.running()
