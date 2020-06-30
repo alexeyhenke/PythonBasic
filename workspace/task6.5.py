@@ -54,6 +54,7 @@ class Handle(Stationery):
     def draw(self):
         print(f'{self.color} маркер рисует')
 
+
 # __end_class_Handle__
 
 black_pen = Pen("Белая ручка", "черный")
