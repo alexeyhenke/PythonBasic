@@ -14,14 +14,12 @@ print("= " * 50)
 
 
 class Worker:
-    _income = {}
 
     def __init__(self, name, surname, position, wage, bonus):
         self.name = name
         self.surname = surname
         self.position = position
         self._income = {"wage": wage, "bonus": bonus}
-        print(f'{self._income.values()}')
 
    # @property
     def income(self):
@@ -34,21 +32,22 @@ class Position(Worker):
 
     def __init__(self, name, surname, position, wage, bonus):
         super().__init__(name, surname, position, wage, bonus)
-        print(f'Новый сотрудник {self.name} {self.surname}')
 
     def get_full_name(self):
-        print(f'{self.name} {self.surname}')
+        return (f'{self.name} {self.surname}')
 
     def get_total_income(self):
-        # print(f'${str(super().income)}')
-        return super().income
+        return self.income()
 
 
 # __end_class_Position__
 
 big_boss = Position("Иван", "Иванов", "Директор", 100000, 100000)
+print(f'Новый сотрудник {big_boss.get_full_name()}')
 print(f'Он имеет позицию {big_boss.position} в нашей фирме')
 print(f'Наш {big_boss.position} имеет З/П ${big_boss.get_total_income()}')
 print("- " * 10)
 groundsman = Position('Андрей', 'Пупкин', 'Землекоп', 10000, 90000)
+print(f'Новый сотрудник {groundsman.get_full_name()}')
+print(f'Он имеет позицию {groundsman.position} в нашей фирме')
 print(f'Наш {groundsman.position} имеет З/П ${groundsman.get_total_income()}')
