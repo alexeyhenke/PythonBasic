@@ -8,30 +8,47 @@
    передать данные, проверить значения атрибутов, вызвать методы экземпляров).
 
 """
-print("= " *50)
+print("= " * 50)
 print("{greeting:^100}".format(greeting="Добро пожаловать на страницу программы Worker (работник)"))
-print("= " *50)
+print("= " * 50)
 
-user_number = 0
-str_number = ""
-int_number = 0
 
-while True:
-    user_number = input("Введите любое число от 1 до 10: ")
+class Worker:
+    _income = {}
 
-    if user_number.isdigit():
-        user_number = int(user_number)
-        if user_number <= 0:
-            print("Ошибка ввода. Введенное число меньше 0 или равное 0.\nВведите любое число от 1 до 10 еще раз")
-        elif user_number > 10:
-            print("Ошибка ввода. Введенное число больше 10.\nВведите любое число от 1 до 10 еще раз")
-        else:
-            break
-    else:
-        print("Ошибка ввода. Введите любое число от 0 до 10 еще раз")
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
+        print(f'{self._income.values()}')
 
-for i in range(user_number):
-    str_number += str(user_number)
-    int_number += int(str_number)   # Считаем 3 + 33 + 333 = 369
+   # @property
+    def income(self):
+        return float(self._income["wage"] + self._income["bonus"])
 
-print(int_number)
+
+# __end_class_Worker__
+
+class Position(Worker):
+
+    def __init__(self, name, surname, position, wage, bonus):
+        super().__init__(name, surname, position, wage, bonus)
+        print(f'Новый сотрудник {self.name} {self.surname}')
+
+    def get_full_name(self):
+        print(f'{self.name} {self.surname}')
+
+    def get_total_income(self):
+        # print(f'${str(super().income)}')
+        return super().income
+
+
+# __end_class_Position__
+
+big_boss = Position("Иван", "Иванов", "Директор", 100000, 100000)
+print(f'Он имеет позицию {big_boss.position} в нашей фирме')
+print(f'Наш {big_boss.position} имеет З/П ${big_boss.get_total_income()}')
+print("- " * 10)
+groundsman = Position('Андрей', 'Пупкин', 'Землекоп', 10000, 90000)
+print(f'Наш {groundsman.position} имеет З/П ${groundsman.get_total_income()}')

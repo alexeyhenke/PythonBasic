@@ -64,7 +64,7 @@ print(f'{blue_pen.title}')
 print("- " * 10)
 
 black_pen.draw()
-print(f'Начинаем рисовать используя {blue_pen.color} цвет')
+print(f'Начинаем рисовать используя {blue_pen.title} она имеет {blue_pen.color} цвет')
 
 print("- " * 10)
 red_pencil = Pencil("Красный карандаш", "красный")
