@@ -23,15 +23,21 @@ class Matrica:
 
     def __add__(self, other):
         result = []
+        if not isinstance(other, Matrica):
+            raise TypeError(f'[ERROR]: тип аргумента не соответствует ожидаемому. {type(other).__name__}')
 
-        min_len = len(self.matrix[:])
+        if len(self.matrix[:]) == len(other.matrix[:]):
+            for i in range(len(self.matrix[:])):
+                row = []
+                if len(self.matrix[i][:]) == len(other.matrix[i][:]):
+                    for k in range(len(self.matrix[:][:])):
+                        row.append(int(self.matrix[i][k]) + int(other.matrix[i][k]))
+                    result.append(row)
+                else:
+                    raise IndexError(f'ERROR: Ошибка при сложении матриц. Количество элементов в ряду матриц не совпадает')
+            return Matrica(result)
+        else:
+            raise IndexError(f'ERROR: Ошибка при сложении матриц. Количество строк матриц не совпадает')
 
-        for i in range(min_len):
-            row = []
-            for k in range(min_len):
-                row.append(int(self.matrix[i][k]) + int(other.matrix[i][k]))
-            result.append(row)
-
-        return result
 
 # __end_class_Martix__

@@ -53,6 +53,5 @@ print(matrix_a)
 print(matrix_b)
 print("- " * 10)
 
-data_matrix_c = (matrix_a + matrix_b)
-matrix_c = Matrica(data_matrix_c)
-print(matrix_c)
+matrix_c = (matrix_a + matrix_b)
+#print(matrix_c)
