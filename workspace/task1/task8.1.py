@@ -8,8 +8,8 @@ from datetime import datetime
 
 
 class Data:
-
     date_format = "%d-%m-%Y"
+
     data_list = []
 
     def __init__(self, data_str: str):
@@ -17,6 +17,7 @@ class Data:
 
     @classmethod
     def split_to_int(cls, data_str):
+        cls.data_list.clear()
         for num in data_str.split('-'):
             if num.isdigit():
                 cls.data_list.append(int(num))
@@ -30,7 +31,6 @@ class Data:
                 print(f'Указанная дата {data_str} указана верно.')
         except ValueError as e:
             print(f'Указана не корректная дата {data_str}. Дата задается в формате ДД-ММ-ГГГГ.\n{e}')
-
 
 
 if __name__ == '__main__':
